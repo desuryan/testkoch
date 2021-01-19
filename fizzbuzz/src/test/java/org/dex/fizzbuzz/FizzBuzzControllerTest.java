@@ -23,8 +23,8 @@ public class FizzBuzzControllerTest {
 	@Test
 	public void getResult() throws Exception {
 
-		mockMvc.perform(get("/play/5")
-				.accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(get("/play")
+				.accept(MediaType.APPLICATION_JSON).param("start", "10").param("stop", "15"))
 				.andExpect(status().isOk()).andExpect(jsonPath("$").isArray()).andExpect(jsonPath("$[0].in").exists());
 	}
 
